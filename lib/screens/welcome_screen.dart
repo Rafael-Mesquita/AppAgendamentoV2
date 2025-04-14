@@ -6,15 +6,12 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(
-      "Tentando carregar a imagem de fundo...",
-    ); // Teste para depuração
+    debugPrint("Tentando carregar a imagem de fundo...");
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Bem-vindo!")), // Barra no topo
+      appBar: AppBar(title: const Text("Bem-vindo!")),
       body: Stack(
         children: [
-          // Verifica se a imagem está sendo carregada
           Positioned.fill(
             child: Image.asset(
               "lib/assets/images/fundo.jpg",
@@ -30,7 +27,6 @@ class WelcomeScreen extends StatelessWidget {
             ),
           ),
 
-          // Conteúdo da tela
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

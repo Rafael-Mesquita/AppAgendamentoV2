@@ -9,10 +9,7 @@ class AgendamentoScreen extends StatefulWidget {
 
 class _AgendamentoScreenState extends State<AgendamentoScreen>
     with SingleTickerProviderStateMixin {
-  // Controla as animações.
   late AnimationController _controller;
-
-  //Variáveis que armazenam as diferentes animações aplicadas no widget.
   late Animation<double> _scaleAnimation;
   late Animation<Offset> _slideAnimation;
   late Animation<double> _rotateAnimation;
@@ -31,33 +28,29 @@ class _AgendamentoScreenState extends State<AgendamentoScreen>
   void initState() {
     super.initState();
 
-    // Define a duração da animação.
     _controller = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
 
-    // Faz o car crescer suavemente ao aparecer.
     _scaleAnimation = CurvedAnimation(
       parent: _controller,
       curve: Curves.easeInOut,
     );
 
-    // Move o card de baixo para cima.
     _slideAnimation = Tween<Offset>(
       begin: Offset(0, 1),
       end: Offset(0, 0),
     ).animate(_controller);
 
-    // Faz o card girar ao aparecer.
     _rotateAnimation = Tween<double>(begin: 0, end: 2).animate(_controller);
   }
 
   void _confirmarConsulta() {
     setState(() {
-      _showResumo = true; // Atualiza o estado e refaz o build()
+      _showResumo = true;
     });
-    _controller.forward(); // Inicia as animações
+    _controller.forward();
   }
 
   @override
@@ -66,11 +59,10 @@ class _AgendamentoScreenState extends State<AgendamentoScreen>
       appBar: AppBar(title: const Text("Agendamento")),
       body: Stack(
         children: [
-          // Imagem de fundo
           Positioned.fill(
             child: Image.asset(
-              "lib/assets/images/fundo.jpg", // Caminho da imagem de fundo
-              fit: BoxFit.cover, // Ajusta a imagem para cobrir toda a tela
+              "lib/assets/images/fundo.jpg",
+              fit: BoxFit.cover,
             ),
           ),
 

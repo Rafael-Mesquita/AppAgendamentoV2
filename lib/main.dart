@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/login_screen.dart';
 import 'screens/welcome_screen.dart';
 import 'screens/agendamento_screen.dart';
 
@@ -14,9 +15,10 @@ class AgendamentoApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: '/',
+      initialRoute: '/login',
       routes: {
-        '/': (context) => const WelcomeScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/welcome': (context) => const WelcomeScreen(),
         '/agendamento': (context) => const AgendamentoScreen(),
       },
     );
